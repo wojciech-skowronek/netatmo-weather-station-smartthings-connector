@@ -10,6 +10,7 @@ services:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
     ports:
       - 4040:4040
+    network_mode: host
   bun:
     image: oven/bun:1
     command: bun start
