@@ -10,8 +10,5 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "@ngrok/ngrok": "^0.9.0"
   }
 }

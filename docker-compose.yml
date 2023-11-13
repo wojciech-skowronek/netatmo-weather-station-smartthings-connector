@@ -1,0 +1,23 @@
+
+version: '3'
+services:
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: always
+    command: http --hostname=cunning-joint-penguin.ngrok-free.app 8080 --authtoken ${NGROK_AUTHTOKEN}
+    # command: http --domain cunning-joint-penguin.ngrok-free.app 8080
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    ports:
+      - 4040:4040
+  bun:
+    image: oven/bun:1
+    command: bun start
+    volumes:
+      - ${PWD}:/home/bun/app
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - ngrok
+
